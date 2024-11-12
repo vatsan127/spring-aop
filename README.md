@@ -1,29 +1,60 @@
-# Aspect-Oriented Programming (AOP)
+# Spring AOP (Aspect-Oriented Programming)
 
 Aspect-Oriented Programming (AOP) is a programming paradigm that aims to increase modularity by allowing the separation
 of cross-cutting concerns (e.g., logging, security, transaction management). In the Spring Framework, AOP enables the
 definition and configuration of these concerns separately from the main business logic.
 
+---
+
 ## Core Concepts in Spring AOP
 
-### Aspect
+1. **Aspect**
 
-An Aspect is a module that contains cross-cutting concerns such as logging, transaction management, or security. In
-Spring, aspects are implemented using classes annotated with `@Aspect`.
+- An **Aspect** is a module that contains cross-cutting concerns such as logging, transaction management, or security.
+- In Spring, aspects are implemented using classes annotated with `@Aspect`.
 
-### Join Point
+2. **Join Point**
 
-A Join Point is a point during the execution of a program, such as method execution, where an aspect can be applied. In
-Spring AOP, join points are limited to method executions only.
+- A **Join Point** is a point during the execution of a program, such as method execution, where an aspect can be
+  applied.
+- In Spring AOP, join points are limited to method executions only.
 
-### Advice
+3. **Advice**
 
-Advice defines the "what" and "when" of the aspect, i.e., what action to take at the join point and when to apply it.
-Spring supports several types of advice:
+- **Advice** defines the "what" and "when" of the aspect, i.e., what action to take at the join point and when to apply
+  it.
 
-- **Before Advice**: Executed before the join point.
-- **After Advice**: Executed after the join point (regardless of the outcome).
-- **After Returning Advice**: Executed after the join point completes normally.
-- **After Throwing Advice**: Executed if the method throws an exception.
-- **Around Advice**: Executed before and after the join point, and allows manual control over whether the join point
-  should proceed.
+#### Types of Advice in Detail
+
+| Advice Type         | Description                                                      |
+|---------------------|------------------------------------------------------------------|
+| **Before Advice**   | Runs before the method execution.                                |
+| **After Advice**    | Runs after the method execution, regardless of the outcome.      |
+| **After Returning** | Runs after the method completes successfully.                    |
+| **After Throwing**  | Runs if the method throws an exception.                          |
+| **Around Advice**   | Runs before and after the method execution, giving full control. |
+
+---
+
+4. **Pointcut**
+
+- A **Pointcut** defines a set of join points (i.e., methods) where advice should be applied.
+- Pointcuts are usually specified by expressions that match method signatures or annotations, using the `@Pointcut`
+  annotation.
+
+5. **Target Object**
+
+- The **Target Object** is the object on which the aspect is applied. Also known as the advised object.
+
+6. **AOP Proxy**
+
+- An **AOP Proxy** is the proxy object that Spring AOP creates around the target object to implement the aspect's
+  functionality.
+- Spring uses **JDK dynamic proxies** or **CGLIB proxies** for creating proxy objects.
+
+7. **Weaving**
+
+- **Weaving** is the process of linking aspects with the target objects to create an advised object.
+- In Spring, weaving is done at runtime, creating the proxy dynamically.
+
+---
