@@ -29,9 +29,9 @@ definition and configuration of these concerns separately from the main business
 | Advice Type         | Description                                                      |
 |---------------------|------------------------------------------------------------------|
 | **Before Advice**   | Runs before the method execution.                                |
-| **After Advice**    | Runs after the method execution, regardless of the outcome.      |
 | **After Returning** | Runs after the method completes successfully.                    |
 | **After Throwing**  | Runs if the method throws an exception.                          |
+| **After Advice**    | Runs after the method execution, regardless of the outcome.      |
 | **Around Advice**   | Runs before and after the method execution, giving full control. |
 
 ---
@@ -58,3 +58,13 @@ definition and configuration of these concerns separately from the main business
 - In Spring, weaving is done at runtime, creating the proxy dynamically.
 
 ---
+
+### Limitations
+
+1. #### Self-invocation bypasses the AOP proxy:
+
+- If a method is called from within the same class, it will not go through
+  the Spring AOP proxy and the advice will not be triggered.
+- This limitation applies to all types of Advice.
+- To trigger AOP advice, ensure that the method is called via the Spring context (i.e., through a Spring-managed
+  proxy). This is typically done by calling the method from another bean or service managed by Spring.
