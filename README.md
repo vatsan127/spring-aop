@@ -59,7 +59,7 @@ definition and configuration of these concerns separately from the main business
 
 ---
 
-### Limitations
+## Limitations
 
 #### Self-invocation bypasses the AOP proxy:
 
