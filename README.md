@@ -24,18 +24,6 @@ definition and configuration of these concerns separately from the main business
 - **Advice** defines the "what" and "when" of the aspect, i.e., what action to take at the join point and when to apply
   it.
 
-#### Types of Advice in Detail
-
-| Advice Type         | Description                                                      |
-|---------------------|------------------------------------------------------------------|
-| **Before Advice**   | Runs before the method execution.                                |
-| **After Returning** | Runs after the method completes successfully.                    |
-| **After Throwing**  | Runs if the method throws an exception.                          |
-| **After Advice**    | Runs after the method execution, regardless of the outcome.      |
-| **Around Advice**   | Runs before and after the method execution, giving full control. |
-
----
-
 4. **Pointcut**
 
 - A **Pointcut** defines a set of join points (i.e., methods) where advice should be applied.
@@ -59,9 +47,21 @@ definition and configuration of these concerns separately from the main business
 
 ---
 
+### Types of Advice
+
+| Advice Type         | Description                                                      |
+|---------------------|------------------------------------------------------------------|
+| **Before Advice**   | Runs before the method execution.                                |
+| **After Returning** | Runs after the method completes successfully.                    |
+| **After Throwing**  | Runs if the method throws an exception.                          |
+| **After Advice**    | Runs after the method execution, regardless of the outcome.      |
+| **Around Advice**   | Runs before and after the method execution, giving full control. |
+
+---
+
 ### Limitations
 
-1. #### Self-invocation bypasses the AOP proxy:
+#### Self-invocation bypasses the AOP proxy:
 
 - If a method is called from within the same class, it will not go through
   the Spring AOP proxy and the advice will not be triggered.
