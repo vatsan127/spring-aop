@@ -10,7 +10,9 @@ definition and configuration of these concerns separately from the main business
 
 1. **Aspect**
 
-- An **Aspect** is a module that contains cross-cutting concerns such as logging, transaction management, or security.
+- An Aspect is a module or class that encapsulates cross-cutting concerns (like logging, security, transaction management, etc.) and contains one or more pieces of advice.
+- Essentially, an aspect defines where (using pointcuts) and what (using advice) should happen in the application.
+- An aspect combines: Advice, Pointcut
 - In Spring, aspects are implemented using classes annotated with `@Aspect`.
 
 2. **Join Point**
